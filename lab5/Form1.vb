@@ -48,6 +48,9 @@ Public Class textEditorForm
     Private Sub mnuCut_Click(sender As Object, e As EventArgs) Handles mnuCut.Click
         ' Remove selected text
         ' put selected text into my.computer.clipboard.set text( text selected)
+        My.Computer.Clipboard.SetText(tbTextInput.SelectedText)
+        tbTextInput.SelectedText = ""
+
     End Sub
 
     Private Sub mnuCopy_Click(sender As Object, e As EventArgs) Handles mnuCopy.Click
