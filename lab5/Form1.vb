@@ -60,7 +60,7 @@ Public Class textEditorForm
 
     Private Sub mnuAbout_Click(sender As Object, e As EventArgs) Handles mnuAbout.Click
 
-        MessageBox.Show("METD-2202\nLab #5\nJ. Lopez", "About", MessageBoxButtons.OK)
+        MessageBox.Show("NETD-2202" & vbCrLf & "Lab #5" & vbCrLf & "J. Lopez", "About", MessageBoxButtons.OK)
 
     End Sub
 
