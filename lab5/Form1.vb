@@ -50,11 +50,17 @@ Public Class textEditorForm
         '   the method should use the right stream object to get the text from the text editor text box to write And the close
 
 
+
+
+        'want to say if file exists overwrite not sure how
+
+
         Dim saveDialog As New SaveFileDialog
-        Dim saveFile As String
-        Dim streamWrite As New IO.StreamWriter(saveFile)
-        streamWrite.Write(tbTextInput.Text)
-        streamWrite.Close()
+            Dim saveFile As String
+            Dim streamWrite As New IO.StreamWriter(saveFile)
+            streamWrite.Write(tbTextInput.Text)
+            streamWrite.Close()
+
 
 
     End Sub
@@ -67,7 +73,11 @@ Public Class textEditorForm
         ' Similar to safe, always display save file dialog
         ' method created for save can be reused. 
 
-
+        Dim saveDialog As New SaveFileDialog
+        Dim saveFile As String
+        Dim streamWrite As New IO.StreamWriter(saveFile)
+        streamWrite.Write(tbTextInput.Text)
+        streamWrite.Close()
 
     End Sub
 
