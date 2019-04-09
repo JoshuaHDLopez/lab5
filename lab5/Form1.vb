@@ -22,11 +22,23 @@ Public Class textEditorForm
     ''' <param name="e"></param>
     Private Sub mnuOpen_Click(sender As Object, e As EventArgs) Handles mnuOpen.Click
         'use the OpenFileDialog to allow the user to select the file'
-        Dim Open As New OpenFileDialog
+
         'use FileStream object instantiated using full path, FileMode.Open and FileAccess.Read in constructor'
+
+
+
+        Dim openDialog As New OpenFileDialog
+        Dim file As String
+        openDialog.ShowDialog()
+        file = openDialog.FileName
         ' instantiate a StreamReader using instantiated fileStream object in its constructor to designate file reading from'
+        Dim stream As New IO.StreamReader(file)
         'new StreamReader object should use ReadToEnd() to load data from file to text editor text box
+        tbTextInput.Text = stream.ReadToEnd()
         'StreamReader closed (.Closed) to release resource
+        stream.Close()
+
+
     End Sub
 
     Private Sub mnuSave_Click(sender As Object, e As EventArgs) Handles mnuSave.Click
@@ -38,11 +50,16 @@ Public Class textEditorForm
         '   file stream object instantiated using full file path, file mode.create and file access.right
         '   file stream object should use instantiated right stream object, in right stream constructor, to designate the file it will be saving to
         '   the method should use the right stream object to get the text from the text editor text box to write And the close
+
+
+
     End Sub
 
     Private Sub mnuSaveAs_Click(sender As Object, e As EventArgs) Handles mnuSaveAs.Click
-        ' Similar to safe, always display save file dialogue
+        ' Similar to safe, always display save file dialog
         ' method created for save can be reused. 
+
+
     End Sub
 
     Private Sub mnuCut_Click(sender As Object, e As EventArgs) Handles mnuCut.Click
