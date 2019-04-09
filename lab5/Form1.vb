@@ -1,7 +1,5 @@
 ﻿Option Strict On
-
-
-
+Imports System.IO
 
 Public Class textEditorForm
     Private Sub textEditorForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -32,11 +30,11 @@ Public Class textEditorForm
         openDialog.ShowDialog()
         file = openDialog.FileName
         ' instantiate a StreamReader using instantiated fileStream object in its constructor to designate file reading from'
-        Dim stream As New IO.StreamReader(file)
+        Dim streamRead As New IO.StreamReader(file)
         'new StreamReader object should use ReadToEnd() to load data from file to text editor text box
-        tbTextInput.Text = stream.ReadToEnd()
+        tbTextInput.Text = streamRead.ReadToEnd()
         'StreamReader closed (.Closed) to release resource
-        stream.Close()
+        streamRead.Close()
 
 
     End Sub
@@ -52,12 +50,23 @@ Public Class textEditorForm
         '   the method should use the right stream object to get the text from the text editor text box to write And the close
 
 
+        Dim saveDialog As New SaveFileDialog
+        Dim saveFile As String
+        Dim streamWrite As New IO.StreamWriter(saveFile)
+        streamWrite.Write(tbTextInput.Text)
+        streamWrite.Close()
+
 
     End Sub
+
+    Private Function saveFile() As Stream
+        Throw New NotImplementedException()
+    End Function
 
     Private Sub mnuSaveAs_Click(sender As Object, e As EventArgs) Handles mnuSaveAs.Click
         ' Similar to safe, always display save file dialog
         ' method created for save can be reused. 
+
 
 
     End Sub
