@@ -86,6 +86,9 @@ Public Class textEditorForm
 
     Private Sub mnuPaste_Click(sender As Object, e As EventArgs) Handles mnuPaste.Click
         ' Inserts text  my.computer.clipboard.Gettext( )Into spot user selected
+
+        tbTextInput.SelectedText = My.Computer.Clipboard.GetText()
+
     End Sub
 
     Private Sub mnuAbout_Click(sender As Object, e As EventArgs) Handles mnuAbout.Click
